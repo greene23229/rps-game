@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let score = 0;
+        function computerplay(){
+            //generate a random number 1,2,3
+            let randomnum = Math.ceil(Math.random()*3);
+            if (randomnum == 1){
+                return "rock";
+            }else if(randomnum ==2){
+                return "paper"; 
+            }else{
+                return "scissors"; 
+            }
+        }
+
+        let computerChoice = computerplay ();
+        console.log(computerChoice);
+
+        function singleround(playerselection, computerselection){
+            if(playerselection == computerselection){
+                return `tie: you choose ${playerselection}the computer chose ${computerselection}`;
+            }else if (playerselection == "rock" && computerselection == "scissors"){
+                return `Win: you choose ${playerselection}, the computer choose ${computerselection}   Score: ${score += 500}`;                                                                                                     
+            }else if (playerselection == "paper" && computerselection == "rock"){
+                return `Win: you choose ${playerselection}, the computer choose ${computerselection}   Score: ${score += 500}`;                                                                                                     
+            }else if (playerselection == "scissors" && computerselection == "paper"){
+                return `Win: you choose ${playerselection}, the computer choose ${computerselection}   Score: ${score += 500}`;                                                                                                     
+            }else if (playerselection == "scissors" && computerselection == "rock"){
+                return `Lost: you choose ${playerselection}, the computer choose ${computerselection}   Score: ${score -= 500}`;                                                                                                     
+            }else if (playerselection == "rock" && computerselection == "paper"){
+                return `Lost: you choose ${playerselection}, the computer choose ${computerselection}   Score: ${score -= 500}`;                                                                                                     
+            }else if (playerselection == "paper" && computerselection == "scissors"){
+                return `Lost: you choose ${playerselection}, the computer choose ${computerselection}   Score: ${score -= 500}`;                                                                                                     
+            }
+        }
+
+
+        function gamePlay(){
+            console.log("Round 1");
+            let playerschoice = prompt("Choose Rock Paper or Scissors");
+            let computerChoice = computerplay();
+            console.log(singleround(playerschoice,computerChoice));
+
+            console.log("Round 2");
+            playerschoice = prompt("Choose Rock Paper or Scissors");
+            computerChoice = computerplay();
+            console.log(singleround(playerschoice,computerChoice));
+
+            console.log("Round 3");
+            playerschoice = prompt("Choose Rock Paper or Scissors");
+            computerChoice = computerplay();
+            console.log(singleround(playerschoice,computerChoice));
+
+            console.log("Round 4");
+            playerschoice = prompt("Choose Rock Paper or Scissors");
+            computerChoice = computerplay();
+            console.log(singleround(playerschoice,computerChoice));
+
+            console.log("Round 5");
+            playerschoice = prompt("Choose Rock Paper or Scissors");
+            computerChoice = computerplay();
+            console.log(singleround(playerschoice,computerChoice));
+
+            console.log(`Final Score: ${score}`);
+
+        }
+
+        gamePlay();
+        
+    </script>
+
+    
+</body>
+</html>
